@@ -12,14 +12,14 @@ public_users.post("/register", (req,res) => {
 
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
-  //Write your code here
-  const getBooks = () =>{
-    return new Promise((resolve,rejects) =>{
-    })
-    
-  }
-  return res.status(300).json({message: "An error has occured"});
-});
+  const getBooks = () => {
+     return new Promise((resolve, reject) => {
+       if (books) {
+        resolve(books);
+       } else {
+        reject("No books available");
+      }
+    });
 
 // Get book details based on ISBN
 public_users.get('/isbn/:isbn',function (req, res) {
